@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8" />
+
+</head>
+<style>
+    ul li {
+       display: inline;
+    }
+</style>
+<body>
+<div th:fragment="header">
+    <h1>Minimal Twitter</h1>
+
+<div th:fragment="sidebar" class="container has-text-centered">
+    <ul>
+        <li> <a th:href="@{'/users/' + ${#authentication.getName()} + '/tweets'}">Tweets</a> </li>
+        <li> <a th:href="@{'/users/' + ${#authentication.getName()} + '/mytweets'}">My Tweets</a></li>
+        <li> <a th:href="@{'/users/' + ${#authentication.getName()} + '/tweets/create'}">Create Tweet</a></li>
+        <li><form method="post" th:action="@{/logout}">
+             <input type="submit" class="btn btn-danger" value="Logout"/>
+             </form>
+        </li>
+    </ul>
+</div>
+</div>
+</body>
+</html>

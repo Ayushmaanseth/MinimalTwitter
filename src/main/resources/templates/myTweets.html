@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+</head>
+<style>
+    div.columns {
+        margin-top: 80px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+</style>
+<body>
+<header th:insert="general.html :: sidebar"> </header>
+<div class="container has-text-centered" >
+    <h2 class="title">What I am tweeting...</h2>
+    <div th:each="tweet : ${tweets}">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <p class="title">
+                        <span th:text="${tweet.getMessage()}"></span>
+                    </p>
+                    <p class="subtitle">
+                        @<span th:text="${tweet.getUser().getUserName()}"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

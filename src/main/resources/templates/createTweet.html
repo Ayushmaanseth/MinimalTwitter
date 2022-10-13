@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+</head>
+<style>
+    div {
+        margin-top: 80px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+</style>
+<body>
+<header th:insert="general.html :: sidebar"> </header>
+<div class="container has-text-centered">
+<form method="post"  action="#" th:action="@{'/users/' + ${#authentication.getName()} + '/tweets/create'}" th:object="${tweetInput}">
+    <label>Tweet:</label>
+    <input placeholder="Enter your tweet..." type="text" th:field="*{message}"/><br/>
+    <input type="submit" class="btn btn-primary" value="Create Tweet"><br/>
+</form>
+</div>
+</body>
+</html>
