@@ -59,6 +59,7 @@ AWS Elastic Beanstalk was used to implement the PoC minimal twitter since no maj
 3. Refactor code to wrap the REST controllers inside service classes
 4. Increase security and exception handling for null, invalid cases. Add CSRF protection.
 5. Add followers, likes and comments features
+6. Remove credentials from application.properties and instead use IAM roles for storing env variables or use AWS Secrets Manager
 
 ## Repository overview
 
